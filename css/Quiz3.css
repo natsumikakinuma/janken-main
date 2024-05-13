@@ -1,0 +1,109 @@
+body {
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 15px;
+    font-size: 48px;
+    color: #ffffff;
+    text-transform: uppercase;
+    background-color: #000000;
+    padding: 20px;
+}
+
+#board {
+    width: 90%;
+    max-width: 700px;
+    height: 75vh;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    margin: 0 auto;
+    border-spacing: 5px;
+}
+
+.cell {
+    color: rgb(213, 128, 175);
+    font-size: 34px;
+    font-family: "Cute Font", Arial, sans-serif;
+    text-shadow: 1px 1px 2px pink;
+
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    /* 背景を透明にする */
+    /* セルの背景色を変更 */
+    border-radius: 50%;
+    margin: 15px;
+    width: 80px;
+    /* 丸のサイズを変更 */
+    height: 80px;
+    /* 丸のサイズを変更 */
+}
+
+.player1,
+.player2 {
+    width: 30px;
+    /* 丸のサイズを増やす */
+    height: 30px;
+    /* 丸のサイズを増やす */
+    border-radius: 50%;
+}
+
+
+.popup-image {
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+}
+
+.player1 {
+    width: 50px;
+    height: 50px;
+    background-image: url('/images/yaruki_moeru_businesswoman.png');
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    /* 丸い形状にする */
+}
+
+.player2 {
+    width: 50px;
+    height: 50px;
+    background-image: url('/images/パソコン.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* 画像を繰り返さないようにする */
+    border-radius: 50%;
+    /* 丸い形状にする */
+}
+
+#rollDice {
+    margin-top: 5px;
+}
+
+#message {
+    margin-top: 20px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+#rollDice {
+    margin-top: 5px;
+    margin-bottom: -20px;
+}

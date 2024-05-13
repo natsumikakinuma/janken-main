@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/Quiz3.css">
+    <title>Document</title>
+</head>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <h1>The Entrepreneurial Journey</h1>
+    <div id="board"></div>
+    <button id="rollDice">サイコロを振る</button>
+        <p id="message"></p>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        const board = $('#board');
+        const player1 = $('<div class="player1"></div>');
+        const player2 = $('<div class="player2"></div>');
+        let position1 = 0;
+        let position2 = 0;
+        let currentPlayer = 1;
+        function createBoard() {
+            for (let i = 0; i < 25; i++) {
+                const cell = $('<div class="cell">' + (i + 1) + '</div>');
+                cell.data('number', i + 1);
+                board.append(cell);
+            }
+            movePlayers();
+        }
+
+        function movePlayers() {
+            const cells = $('.cell');
+            $(cells[position1]).append(player1);
+            $(cells[position2]).append(player2);
+        }
+
+        $('#rollDice').click(function () {
+            const diceResult = Math.floor(Math.random() * 6) + 1;
+
+            if (currentPlayer === 1) {
+                position1 += diceResult;
+                if (position1 >= 25) {
+                    showWinner('プレイヤー1');
+                    return;
+                }
+            } else {
+                position2 += diceResult;
+                if (position2 >= 25) {
+                    showWinner('コンピュータ');
+                    return;
+                }
+            }
+            currentPlayer = (currentPlayer === 1) ? 2 : 1;
+            movePlayers();
+
+            // コンピュータの動き
+            if (currentPlayer === 2) {
+                setTimeout(computerMove, 1000); // 1秒後にコンピュータ
+            }
+        });
+        function computerMove() {
+            const diceResult = Math.floor(Math.random() * 6) + 1;
+            position2 += diceResult;
+            if (position2 >= 25) {
+                showWinner('コンピュータ');
+                return;
+            }
+            currentPlayer = 1;
+            movePlayers();
+            // サイコロの目に応じてポップアップ
+            showPopup(position2);
+        }
+        function showWinner(winner) {
+            position1 = 0;
+            position2 = 0;
+            currentPlayer = 1;
+            movePlayers();
+            $('#message').text(winner + 'が勝ちました！');
+            // 2秒後
+            setTimeout(function () {
+                $('#message').text('');
+            }, 2000);
+        }
+
+
+        function showPopup(number) {
+            let imagePath = '';
+
+            switch (number) {
+                case 1:
+                    imagePath = '/images/1.png';
+                    break;
+                case 2:
+                    imagePath = '/images/2.png';
+                    break;
+                case 3:
+                    imagePath = '/images/3.png';
+                    break;
+                case 4:
+                    imagePath = '/images/4.png';
+                    break;
+                case 5:
+                    imagePath = '/images/5.png';
+                    break;
+                case 6:
+                    imagePath = '/images/6.png';
+                    break;
+                case 7:
+                    imagePath = '/images/7.png';
+                    break;
+                case 8:
+                    imagePath = '/images/8.png';
+                    break;
+                case 9:
+                    imagePath = '/images/9.png';
+                    break;
+                case 10:
+                    imagePath = '/images/10.png';
+                    break;
+                case 11:
+                    imagePath = '/images/11.png';
+                    break;
+                case 12:
+                    imagePath = '/images/12.png';
+                    break;
+                case 13:
+                    imagePath = '/images/13.png';
+                    break;
+                case 14:
+                    imagePath = '/images/14.png';
+                    break;
+                case 15:
+                    imagePath = '/images/15.png';
+                    break;
+                case 16:
+                    imagePath = '/images/16.png';
+                    break;
+                case 17:
+                    imagePath = '/images/17.png';
+                    break;
+                case 18:
+                    imagePath = '/images/18.png';
+                    break;
+                case 19:
+                    imagePath = '/images/15.png';
+                    break;
+                case 20:
+                    imagePath = '/images/14.png';
+                    break;
+                case 21:
+                    imagePath = '/images/16.png';
+                    break;
+                case 22:
+                    imagePath = '/images/17.png';
+                    break;
+                case 23:
+                    imagePath = '/images/18.png';
+                    break;
+                case 24:
+                    imagePath = '/images/11.png';
+                    break;
+                case 25:
+                    imagePath = '/images/12.png';
+                    break;
+
+                default:
+                    imagePath = '/images/18.png'; // デフォルトの画像
+            }
+            const popupImage = $('<img class="popup-image" src="' + imagePath + '">');
+            $('body').append(popupImage);
+            setTimeout(function () {
+                popupImage.remove(); //
+            }, 2000); // 3秒後に削除
+        }
+
+        createBoard();
+    })(jQuery);
+
+
+
+</script>
+
+
+</body>
+</html>

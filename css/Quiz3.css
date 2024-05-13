@@ -71,7 +71,6 @@ h1 {
 .player1 {
     width: 50px;
     height: 50px;
-    background-image: url('https://github.com/natsumikakinuma/janken-main/raw/main/images/%E3%83%91%E3%82%BD%E3%82%B3%E3%83%B3.png');
     background-image: url('https://github.com/natsumikakinuma/janken-main/raw/main/images/yaruki_moeru_businesswoman.png');
 　　 background-size: cover;
     background-repeat: no-repeat;

@@ -72,8 +72,8 @@ h1 {
     width: 50px;
     height: 50px;
     background-image: url('https://github.com/natsumikakinuma/janken-main/raw/main/images/%E3%83%91%E3%82%BD%E3%82%B3%E3%83%B3.png');
-
-    background-size: cover;
+    background-image: url('https://github.com/natsumikakinuma/janken-main/raw/main/images/yaruki_moeru_businesswoman.png');
+　　 background-size: cover;
     background-repeat: no-repeat;
     border-radius: 50%;
     /* 丸い形状にする */
@@ -82,7 +82,7 @@ h1 {
 .player2 {
     width: 50px;
     height: 50px;
-    background-image: url('https://github.com/natsumikakinuma/janken-main/blob/main/images/%E3%83%91%E3%82%BD%E3%82%B3%E3%83%B3.png?raw=true');
+    background-image: url('https://github.com/natsumikakinuma/janken-main/raw/main/images/%E3%83%91%E3%82%BD%E3%82%B3%E3%83%B3.png');
     background-size: cover;
     background-repeat: no-repeat;
     /* 画像を繰り返さないようにする */
